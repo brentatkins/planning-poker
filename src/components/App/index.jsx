@@ -2,9 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { AuthUserContext, useAuthentication } from "../UserSession";
-import Navigation from "../Navigation";
 import LandingPage from "../Pages/Landing";
-import SignInPage from "../Pages/SignIn";
+import SessionPage from "../Pages/Session";
 import HomePage from "../Pages/Home";
 import * as ROUTES from "../../constants/routes";
 
@@ -14,10 +13,9 @@ const App = () => {
   return (
     <AuthUserContext.Provider value={authState.user}>
       <Router>
-        <Navigation />
         <Route exact path={ROUTES.LANDING} component={LandingPage} />
-        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
         <Route path={ROUTES.HOME} component={HomePage} />
+        <Route path={ROUTES.SESSION} component={SessionPage} />
       </Router>
     </AuthUserContext.Provider>
   );
