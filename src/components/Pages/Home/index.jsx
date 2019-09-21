@@ -1,17 +1,16 @@
 import React from "react";
+import { Box, Grid } from "grommet";
 
 import { useAuthorisation, authRules } from "../../Session";
-
 import PartyList from "../../PartyList";
 
 const Home = ({ history }) => {
   useAuthorisation(authRules.userIsSignedIn, history);
 
   return (
-    <div>
-      <h1>Home</h1>
-      <PartyList />
-    </div>
+    <Box background="light-2">
+      <PartyList></PartyList>
+    </Box>
   );
 };
 

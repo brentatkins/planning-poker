@@ -14,13 +14,10 @@ const App = () => {
   return (
     <AuthUserContext.Provider value={authState.user}>
       <Router>
-        <div>
-          <Navigation />
-          <hr />
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
-          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
-        </div>
+        <Navigation />
+        <Route exact path={ROUTES.LANDING} component={LandingPage} />
+        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+        <Route path={ROUTES.HOME} component={HomePage} />
       </Router>
     </AuthUserContext.Provider>
   );
