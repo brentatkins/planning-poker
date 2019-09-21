@@ -2,25 +2,21 @@ import { useEffect, useState, useContext } from "react";
 
 import { FirebaseContext } from "../Firebase";
 
-function useFirebaseCollection(collectionName) {
+function useFirebaseDoc(id) {
   const firebase = useContext(FirebaseContext);
 
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [collection, setCollection] = useState([]);
+  const [doc, setDoc] = useState(null);
 
   useEffect(() => {
     const unsubscribe = firebase
       .firestore()
-      .collection(collectionName)
+      .doc(id)
       .onSnapshot(
-        snapshot => {
-          const list = [];
-          snapshot.forEach(doc => {
-            list.push({ id: doc.id, ...doc.data() });
-          });
+        doc => {
           setIsLoading(false);
-          setCollection(list);
+          setDoc({ id: doc.id, ...doc.data() });
         },
         err => {
           setIsLoading(false);
@@ -29,9 +25,9 @@ function useFirebaseCollection(collectionName) {
       );
 
     return () => unsubscribe();
-  }, [firebase, collectionName]);
+  }, [firebase, id]);
 
-  return { collection, error, isLoading };
+  return { error, isLoading, doc };
 }
 
-export default useFirebaseCollection;
+export default useFirebaseDoc;

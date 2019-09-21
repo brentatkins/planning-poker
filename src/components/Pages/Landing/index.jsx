@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { Heading, Text, Button, Box } from "grommet";
-import { Link } from "react-router-dom";
+import { Heading, Button } from "grommet";
 
 import Page from "../../Page";
 import { AuthUserContext } from "../../UserSession";

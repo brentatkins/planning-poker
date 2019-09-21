@@ -13,7 +13,7 @@ const Home = ({ history }) => {
   }
 
   return (
-    <Page title="Sessions">
+    <Page title="All Sessions">
       <SessionList onNavigateToSession={navigateToSession} />
     </Page>
   );

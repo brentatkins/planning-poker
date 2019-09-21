@@ -17,7 +17,9 @@ class Firebase {
     app.initializeApp(config);
 
     this.auth = app.auth();
-    this.firestore = app.firestore();
+    this.firestore = app.firestore;
+
+    console.warn("app", app);
   }
 
   doSignIn = async () => {
@@ -27,7 +29,9 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  sessions = () => this.firestore.collection("sessions");
+  sessions = () => this.firestore().collection("sessions");
+
+  session = id => this.sessions().doc(id);
 }
 
 export default Firebase;
