@@ -3,54 +3,52 @@ import { Grid, Box, Text, Heading, Button } from "grommet";
 import { AddCircle } from "grommet-icons";
 import { formatDistance } from "date-fns";
 
-import AddParty from "./AddParty";
+import AddSession from "./AddSession";
 import { useFirebaseCollection } from "../Firebase";
 
-const PartyList = () => {
+const SessionList = () => {
   const [isAddOpen, setIsAddOpen] = useState(false);
 
-  const { collection: parties, error, isLoading } = useFirebaseCollection(
+  const { collection: sessions, error, isLoading } = useFirebaseCollection(
     "sessions"
   );
-
-  console.warn({ parties });
 
   if (isLoading) {
     return <Heading level="4">Loading...</Heading>;
   } else if (error) {
-    return <Heading level="4">Error loading parties</Heading>;
+    return <Heading level="4">Error loading sessions</Heading>;
   }
 
   return (
     <Box pad="small">
       <Heading level="4" margin="small">
-        Parties
+        Sessions
       </Heading>
       <Grid align="start" gap="small">
         <Box align="start">
           <Button
             icon={<AddCircle />}
-            label="Create New Party"
+            label="Create New Session"
             onClick={() => setIsAddOpen(true)}
             color="accent-4"
             primary
           />
         </Box>
         <Box gap="small" direction="row-responsive">
-          {parties.map(party => (
+          {sessions.map(session => (
             <Box
-              key={`partylist_${party.id}`}
+              key={`sessionlist_${session.id}`}
               background="neutral-2"
               pad="small"
             >
               <Heading level="5" margin="small">
-                {party.title}
+                {session.title}
               </Heading>
               <Text size="xsmall">
-                Created by {party.createdBy}{" "}
-                {party.dateCreated &&
+                Created by {session.createdBy}{" "}
+                {session.dateCreated &&
                   `${formatDistance(
-                    party.dateCreated.toDate(),
+                    session.dateCreated.toDate(),
                     new Date()
                   )} ago`}
               </Text>
@@ -58,9 +56,9 @@ const PartyList = () => {
           ))}
         </Box>
       </Grid>
-      {isAddOpen && <AddParty onClose={() => setIsAddOpen(false)} />}
+      {isAddOpen && <AddSession onClose={() => setIsAddOpen(false)} />}
     </Box>
   );
 };
 
-export default PartyList;
+export default SessionList;

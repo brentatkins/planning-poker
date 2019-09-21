@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { AuthUserContext } from "../../Session";
+import { AuthUserContext } from "../../UserSession";
 
 const Landing = () => {
   const authUser = useContext(AuthUserContext);

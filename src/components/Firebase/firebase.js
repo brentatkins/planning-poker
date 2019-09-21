@@ -27,7 +27,7 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  parties = () => this.firestore.collection("sessions");
+  sessions = () => this.firestore.collection("sessions");
 }
 
 export default Firebase;

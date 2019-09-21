@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { AuthUserContext } from "../Session";
+import { AuthUserContext } from "../UserSession";
 import * as ROUTES from "../../constants/routes";
 
 const NavigationAuth = () => (

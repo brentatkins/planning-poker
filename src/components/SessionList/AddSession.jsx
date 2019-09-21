@@ -3,15 +3,15 @@ import { Box, Heading, Button, TextInput } from "grommet";
 
 import { Toast } from "../UI/Toast";
 import { FirebaseContext } from "../Firebase";
-import { AuthUserContext } from "../Session";
+import { AuthUserContext } from "../UserSession";
 
-const AddParty = ({ onClose }) => {
+const AddSession = ({ onClose }) => {
   const [title, setTitle] = useState("");
   const firebase = useContext(FirebaseContext);
   const user = useContext(AuthUserContext);
 
-  async function saveNewParty() {
-    await firebase.parties().add({
+  async function saveNewSession() {
+    await firebase.sessions().add({
       title,
       createdBy: user.displayName,
       dateCreated: new Date()
@@ -39,7 +39,7 @@ const AddParty = ({ onClose }) => {
         </Box>
         <Box width="medium" margin="none" direction="row">
           <Box basis="1/2">
-            <Button plain color="dark-1" onClick={saveNewParty}>
+            <Button plain color="dark-1" onClick={saveNewSession}>
               <Box pad="small" align="center" background="status-ok">
                 Accept
               </Box>
@@ -58,4 +58,4 @@ const AddParty = ({ onClose }) => {
   );
 };
 
-export default AddParty;
+export default AddSession;
