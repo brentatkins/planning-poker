@@ -13,7 +13,7 @@ const AddSession = ({ onClose }) => {
   async function saveNewSession() {
     await firebase.sessions().add({
       title,
-      createdBy: user.displayName,
+      createdBy: user.email,
       dateCreated: new Date()
     });
     onClose();

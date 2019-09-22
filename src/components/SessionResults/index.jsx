@@ -37,7 +37,9 @@ function SessionResults({ session }) {
                 <Box
                   pad="xsmall"
                   background={
-                    sessionUser === user.displayName ? "accent-1" : "accent-4"
+                    sessionUser === user.planningPokerUsername
+                      ? "accent-1"
+                      : "accent-4"
                   }
                 >
                   <Text size="large">{sessionUser}</Text>

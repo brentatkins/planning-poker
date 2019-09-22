@@ -21,7 +21,7 @@ class Firebase {
   }
 
   doSignIn = async () => {
-    const provider = new app.auth.GoogleAuthProvider();
+    const provider = new app.auth.GithubAuthProvider();
     await this.auth.signInWithPopup(provider);
   };
 

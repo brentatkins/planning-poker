@@ -13,27 +13,31 @@ function SessionVote({ session }) {
 
   const joinSession = () => {
     firebase.session(session.id).update({
-      users: firebase.firestore.FieldValue.arrayUnion(user.displayName)
+      users: firebase.firestore.FieldValue.arrayUnion(
+        user.planningPokerUsername
+      )
     });
   };
 
   const leaveSession = () => {
     firebase.session(session.id).update({
-      users: firebase.firestore.FieldValue.arrayRemove(user.displayName),
-      [`votes.${user.displayName}`]: firebase.firestore.FieldValue.delete()
+      users: firebase.firestore.FieldValue.arrayRemove(
+        user.planningPokerUsername
+      ),
+      [`votes.${user.planningPokerUsername}`]: firebase.firestore.FieldValue.delete()
     });
   };
 
   const castVote = estimate => {
     firebase.session(session.id).update({
-      [`votes.${user.displayName}`]: estimate
+      [`votes.${user.planningPokerUsername}`]: estimate
     });
   };
 
   const userIsInSession =
-    session.users && session.users.includes(user.displayName);
+    session.users && session.users.includes(user.planningPokerUsername);
 
-  const userVote = session.votes && session.votes[user.displayName];
+  const userVote = session.votes && session.votes[user.planningPokerUsername];
 
   return (
     <Box align="start" gap="small" background="neutral-3" pad="small">
