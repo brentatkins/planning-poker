@@ -22,7 +22,8 @@ const Landing = ({ history }) => {
   return (
     <Page>
       <Heading>
-        Welcome to planning poker {authUser ? authUser.email : ""}
+        Welcome to planning poker{" "}
+        {authUser ? authUser.planningPokerUsername : ""}
       </Heading>
       {authUser && (
         <Button
