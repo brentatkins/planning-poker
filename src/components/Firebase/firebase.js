@@ -18,8 +18,6 @@ class Firebase {
 
     this.auth = app.auth();
     this.firestore = app.firestore;
-
-    console.warn("app", app);
   }
 
   doSignIn = async () => {

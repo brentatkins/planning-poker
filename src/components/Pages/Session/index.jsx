@@ -1,11 +1,12 @@
 import React from "react";
-import { Heading, Box } from "grommet";
+import { Box } from "grommet";
 
 import Page from "../../Page";
 import { useAuthorisation, authRules } from "../../UserSession";
 import { useFirebaseDoc } from "../../Firebase";
 import SessionHeader from "../../SessionHeader";
-import SessionUsers from "../../SessionUsers";
+import SessionVote from "../../SessionVote";
+import SessionResults from "../../SessionResults";
 
 const Session = ({ history, match }) => {
   const { id } = match.params;
@@ -13,16 +14,23 @@ const Session = ({ history, match }) => {
   useAuthorisation(authRules.userIsSignedIn, history);
   const { doc: session, isLoading, error } = useFirebaseDoc(`sessions/${id}`);
 
-  const pageTitle = session ? `Session - ${session.title}` : "";
+  const pageTitle = session
+    ? session.title
+    : isLoading
+    ? "Loading..."
+    : error
+    ? "Error"
+    : "";
 
   return (
     <Page title={pageTitle}>
-      {isLoading && <Heading>Loading...</Heading>}
-      {error && <Heading>Error!</Heading>}
       {session && (
         <Box gap="small">
           <SessionHeader session={session} />
-          <SessionUsers session={session} />
+          <Box direction="row" gap="small">
+            <SessionVote session={session} />
+            <SessionResults session={session} />
+          </Box>
         </Box>
       )}
     </Page>
