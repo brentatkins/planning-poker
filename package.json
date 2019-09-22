@@ -2,6 +2,7 @@
   "name": "planning-poker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://brentatkins.github.io/planning-poker",
   "dependencies": {
     "date-fns": "^2.2.1",
     "firebase": "^6.6.2",
@@ -13,13 +14,18 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "react-scripts": "3.1.2"
+    "gh-pages": "^2.1.1",
+    "react-scripts": "3.1.2",
+    "rimraf": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run clean && npm run build",
+    "deploy": "gh-pages -d build",
+    "clean": "rimraf build"
   },
   "eslintConfig": {
     "extends": "react-app"
