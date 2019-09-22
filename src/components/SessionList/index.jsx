@@ -38,7 +38,7 @@ const SessionList = ({ onNavigateToSession }) => {
             pad="small"
             onClick={() => onNavigateToSession(session.id)}
           >
-            <Heading level="5" margin="small">
+            <Heading level="3" margin="none">
               {session.title}
             </Heading>
             <Text size="xsmall">

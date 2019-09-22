@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Button, Heading } from "grommet";
+import { Box, Button, Heading, Paragraph, Text } from "grommet";
 import { Link, Unlink } from "grommet-icons";
 
 import { FirebaseContext } from "../Firebase";
@@ -40,11 +40,34 @@ function SessionVote({ session }) {
   const userVote = session.votes && session.votes[user.planningPokerUsername];
 
   return (
-    <Box align="start" gap="small" background="neutral-3" pad="small">
+    <Box
+      align="start"
+      gap="small"
+      background="neutral-3"
+      pad="small"
+      width="medium"
+    >
       <Heading level="2" margin="none" size="small">
         Your vote
       </Heading>
-
+      {userIsInSession && !userVote && (
+        <Paragraph>
+          You have not voted on this issue yet. Please do so by clicking one of
+          the estimates below
+        </Paragraph>
+      )}
+      {userIsInSession && userVote && (
+        <>
+          <Box align="center">
+            <Text color="accent-1" size="80px" weight="bold">
+              {userVote}
+            </Text>
+          </Box>
+          <Paragraph>
+            You may change your vote by clicking another estimate below
+          </Paragraph>
+        </>
+      )}
       {userIsInSession && (
         <Box gap="xxsmall" direction="row">
           {estimates.map(x => (
@@ -58,20 +81,26 @@ function SessionVote({ session }) {
         </Box>
       )}
       {userIsInSession ? (
-        <Button
-          // primary
-          color="accent-3"
-          label="Leave session"
-          onClick={leaveSession}
-          icon={<Unlink />}
-        />
+        <>
+          <Paragraph size="small">
+            To remove your vote and leave the session click below
+          </Paragraph>
+          <Button
+            // primary
+            color="accent-3"
+            label="Leave"
+            onClick={leaveSession}
+            icon={<Unlink />}
+          />
+        </>
       ) : (
-        <Button
-          primary
-          label="Join session"
-          onClick={joinSession}
-          icon={<Link />}
-        />
+        <>
+          <Paragraph>
+            You need to join the session before you may cast a vote. Join by
+            clicking below
+          </Paragraph>
+          <Button primary label="Join" onClick={joinSession} icon={<Link />} />
+        </>
       )}
     </Box>
   );
