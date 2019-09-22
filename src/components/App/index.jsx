@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import { AuthUserContext, useAuthentication } from "../UserSession";
 import LandingPage from "../Pages/Landing";
@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <AuthUserContext.Provider value={authState.user}>
-      <Router>
+      <Router basename="/">
         <Route exact path={ROUTES.LANDING} component={LandingPage} />
         <Route path={ROUTES.HOME} component={HomePage} />
         <Route path={ROUTES.SESSION} component={SessionPage} />
