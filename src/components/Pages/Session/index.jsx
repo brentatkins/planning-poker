@@ -4,7 +4,6 @@ import { Box } from "grommet";
 import Page from "../../Page";
 import { useAuthorisation, authRules } from "../../UserSession";
 import { useFirebaseDoc } from "../../Firebase";
-import SessionHeader from "../../SessionHeader";
 import SessionVote from "../../SessionVote";
 import SessionResults from "../../SessionResults";
 
@@ -26,8 +25,12 @@ const Session = ({ history, match }) => {
     <Page title={pageTitle}>
       {session && (
         <Box fill="horizontal" direction="row" gap="small">
-          <SessionVote session={session} />
-          <SessionResults session={session} />
+          <Box width="medium">
+            <SessionVote session={session} />
+          </Box>
+          <Box flex="grow">
+            <SessionResults session={session} />
+          </Box>
         </Box>
       )}
     </Page>

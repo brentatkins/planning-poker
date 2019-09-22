@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Box, Heading, Text, CheckBox, Paragraph } from "grommet";
-import { Checkmark } from "grommet-icons";
 
 import { FirebaseContext } from "../Firebase";
 import { AuthUserContext } from "../UserSession";
@@ -18,13 +17,7 @@ function SessionResults({ session }) {
   const getUserVote = user => session.votes && session.votes[user];
 
   return (
-    <Box
-      align="start"
-      gap="small"
-      background="neutral-2"
-      pad="small"
-      flex="grow"
-    >
+    <Box align="start" gap="small" background="neutral-4" pad="small">
       <Heading level="2" margin="none" size="small">
         Results
       </Heading>
@@ -48,7 +41,7 @@ function SessionResults({ session }) {
                 direction="row"
                 border={boxBorder}
               >
-                <Box pad="xsmall" background="accent-4">
+                <Box pad="xsmall">
                   <Text size="large">{sessionUser}</Text>
                 </Box>
                 {userVote && (
@@ -63,7 +56,11 @@ function SessionResults({ session }) {
                         {userVote}
                       </Text>
                     ) : (
-                      <Checkmark />
+                      <Text size="large">
+                        <span role="img" aria-label="waiting">
+                          🤐
+                        </span>
+                      </Text>
                     )}
                   </Box>
                 )}

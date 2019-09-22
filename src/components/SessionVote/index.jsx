@@ -40,13 +40,7 @@ function SessionVote({ session }) {
   const userVote = session.votes && session.votes[user.planningPokerUsername];
 
   return (
-    <Box
-      align="start"
-      gap="small"
-      background="neutral-3"
-      pad="small"
-      width="medium"
-    >
+    <Box align="start" gap="small" background="neutral-3" pad="small">
       <Heading level="2" margin="none" size="small">
         Your vote
       </Heading>
