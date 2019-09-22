@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d1730a1920689122f3e3737bcc4b3d65",
+    "revision": "e97bc1d7ce876bfdfabf7fc751c7ee8c",
     "url": "/planning-poker/index.html"
   },
   {
