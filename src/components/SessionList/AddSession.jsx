@@ -41,14 +41,14 @@ const AddSession = ({ onClose }) => {
           <Box basis="1/2">
             <Button plain color="dark-1" onClick={saveNewSession}>
               <Box pad="small" align="center" background="status-ok">
-                Accept
+                Ok
               </Box>
             </Button>
           </Box>
           <Box basis="1/2">
             <Button plain color="dark-1" onClick={onClose}>
               <Box pad="small" align="center" background="status-error">
-                Reject
+                Cancel
               </Box>
             </Button>
           </Box>
