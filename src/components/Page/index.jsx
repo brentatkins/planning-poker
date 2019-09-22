@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 
 const Page = ({ title, match, history, children }) => {
-  const isNotHome = match.path !== ROUTES.HOME;
+  const isNotHome = match.path !== ROUTES.HOME && match.path !== ROUTES.LANDING;
 
   return (
     <Grommet full>
