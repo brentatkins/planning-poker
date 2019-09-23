@@ -4,7 +4,8 @@ import { FirebaseContext } from "../Firebase";
 
 const getNameFromEmail = email => {
   const reMatch = /^([^@]*)@/;
-  const name = email.match(reMatch)[1];
+  const namePart = email.match(reMatch)[1];
+  const name = namePart.replace(/\./g, " ");
   return name;
 };
 
