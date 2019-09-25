@@ -27,7 +27,7 @@ function SessionResults({ session }) {
         label="Reveal results"
         onChange={handleRevealChange}
       />
-      <Box direction="row" justify="center" gap="small">
+      <Box direction="row" gap="small" wrap>
         {session.users &&
           session.users.map(sessionUser => {
             const userVote = getUserVote(sessionUser);
@@ -40,30 +40,31 @@ function SessionResults({ session }) {
                 key={`session_user_${sessionUser}`}
                 direction="row"
                 border={boxBorder}
+                margin={{ bottom: "small" }}
               >
                 <Box pad="xsmall">
                   <Text size="large">{sessionUser}</Text>
                 </Box>
-                {userVote && (
-                  <Box
-                    pad="xxsmall"
-                    justify="center"
-                    width="xxsmall"
-                    align="center"
-                  >
-                    {session.reveal ? (
-                      <Text size="large" weight="bold">
-                        {userVote}
-                      </Text>
-                    ) : (
-                      <Text size="large">
-                        <span role="img" aria-label="waiting">
-                          🤐
-                        </span>
-                      </Text>
+                <Box
+                  pad="xxsmall"
+                  justify="center"
+                  width="xxsmall"
+                  align="center"
+                >
+                  <Text size="large" weight="bold">
+                    {userVote && session.reveal && userVote}
+                    {userVote && !session.reveal && (
+                      <span role="img" aria-label="waiting">
+                        🤐
+                      </span>
                     )}
-                  </Box>
-                )}
+                    {!userVote && (
+                      <span role="img" aria-label="waiting">
+                        🤷
+                      </span>
+                    )}
+                  </Text>
+                </Box>
               </Box>
             );
           })}

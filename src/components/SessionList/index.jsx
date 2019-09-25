@@ -30,12 +30,13 @@ const SessionList = ({ onNavigateToSession }) => {
           primary
         />
       </Box>
-      <Box gap="small" direction="row-responsive">
+      <Box wrap gap="small" direction="row">
         {sessions.map(session => (
           <Box
             key={`sessionlist_${session.id}`}
             background="neutral-2"
             pad="small"
+            margin={{ bottom: "small" }}
             onClick={() => onNavigateToSession(session.id)}
           >
             <Heading level="3" margin="none">
