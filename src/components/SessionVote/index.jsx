@@ -5,7 +5,7 @@ import { Link, Unlink } from "grommet-icons";
 import { FirebaseContext } from "../Firebase";
 import { AuthUserContext } from "../UserSession";
 
-const estimates = [1, 2, 5, 8, 13];
+const estimates = [1, 2, 3, 5, 8, 13];
 
 function SessionVote({ session }) {
   const firebase = useContext(FirebaseContext);
