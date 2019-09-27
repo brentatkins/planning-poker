@@ -25,7 +25,7 @@ const Session = ({ history, match }) => {
     <Page title={pageTitle}>
       {session && (
         <Box fill="horizontal" direction="row" gap="small">
-          <Box width="medium">
+          <Box width="400px">
             <SessionVote session={session} />
           </Box>
           <Box flex="grow">
