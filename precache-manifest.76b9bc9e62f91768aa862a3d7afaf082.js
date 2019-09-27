@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2ca77d9d1f793157b2e47136c19ce87e",
+    "revision": "b045c119bc6d118148dc86728b39ee1b",
     "url": "/planning-poker/index.html"
   },
   {
-    "revision": "f5a48283fef5a069c3c1",
+    "revision": "bc2548ee2d44edc04372",
     "url": "/planning-poker/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/planning-poker/static/js/2.43563d83.chunk.js"
   },
   {
-    "revision": "f5a48283fef5a069c3c1",
-    "url": "/planning-poker/static/js/main.e4a4bef2.chunk.js"
+    "revision": "bc2548ee2d44edc04372",
+    "url": "/planning-poker/static/js/main.84d509ad.chunk.js"
   },
   {
     "revision": "67c48b08c715cc40cf8b",
