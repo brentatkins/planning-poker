@@ -16,6 +16,22 @@ function SessionResults({ session }) {
 
   const getUserVote = user => session.votes && session.votes[user];
 
+  const userComparator = (sessionUserA, sessionUserB) => {
+    const userVoteA = getUserVote(sessionUserA);
+    const userVoteB = getUserVote(sessionUserB);
+
+    if (userVoteA < userVoteB || (userVoteA && !userVoteB)){
+      return -1;
+    }
+
+    if (userVoteA > userVoteB){
+      return 1;
+    }
+
+    return 0;
+  }
+  session.users.sort(userComparator);
+
   return (
     <Box align="start" gap="small" background="neutral-4" pad="small">
       <Heading level="2" margin="none" size="small">
@@ -27,7 +43,7 @@ function SessionResults({ session }) {
         label="Reveal results"
         onChange={handleRevealChange}
       />
-      <Box direction="row" gap="small" wrap>
+      <Box direction="column" gap="small" wrap>
         {session.users &&
           session.users.map(sessionUser => {
             const userVote = getUserVote(sessionUser);
@@ -39,6 +55,7 @@ function SessionResults({ session }) {
               <Box
                 key={`session_user_${sessionUser}`}
                 direction="row"
+                justify="between"
                 border={boxBorder}
                 margin={{ bottom: "small" }}
               >
