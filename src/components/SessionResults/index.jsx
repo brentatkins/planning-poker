@@ -51,7 +51,7 @@ function SessionResults({ session }) {
                   width="xxsmall"
                   align="center"
                 >
-                  <Text size="large" weight="bold">
+                  <Text size="large" weight="bold" color="status-warning">
                     {userVote && session.reveal && userVote}
                     {userVote && !session.reveal && (
                       <span role="img" aria-label="waiting">
