@@ -30,7 +30,10 @@ function SessionResults({ session }) {
 
     return 0;
   }
-  session.users.sort(userComparator);
+
+  if(session.reveal) {
+    session.users.sort(userComparator);
+  }
 
   return (
     <Box align="start" gap="small" background="neutral-4" pad="small">
