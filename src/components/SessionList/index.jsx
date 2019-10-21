@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Grid, Box, Text, Heading, Button } from "grommet";
 import { AddCircle } from "grommet-icons";
 import { formatDistance } from "date-fns";
+import sortBy from "lodash/fp/sortBy";
 
 import AddSession from "./AddSession";
 import { useFirebaseCollection } from "../Firebase";
@@ -19,6 +20,8 @@ const SessionList = ({ onNavigateToSession }) => {
     return <Heading level="4">Error loading sessions</Heading>;
   }
 
+  const sortedSessions = sortBy("title")(sessions);
+
   return (
     <Grid align="start" gap="small">
       <Box align="start">
@@ -31,7 +34,7 @@ const SessionList = ({ onNavigateToSession }) => {
         />
       </Box>
       <Box wrap gap="small" direction="row">
-        {sessions.map(session => (
+        {sortedSessions.map(session => (
           <Box
             key={`sessionlist_${session.id}`}
             background="neutral-2"
