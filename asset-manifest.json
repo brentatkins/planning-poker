@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/planning-poker/static/css/main.498d002a.chunk.css",
-    "main.js": "/planning-poker/static/js/main.e6066834.chunk.js",
-    "main.js.map": "/planning-poker/static/js/main.e6066834.chunk.js.map",
+    "main.js": "/planning-poker/static/js/main.1a0ab660.chunk.js",
+    "main.js.map": "/planning-poker/static/js/main.1a0ab660.chunk.js.map",
     "runtime-main.js": "/planning-poker/static/js/runtime-main.9851197a.js",
     "runtime-main.js.map": "/planning-poker/static/js/runtime-main.9851197a.js.map",
-    "static/js/2.62b59991.chunk.js": "/planning-poker/static/js/2.62b59991.chunk.js",
-    "static/js/2.62b59991.chunk.js.map": "/planning-poker/static/js/2.62b59991.chunk.js.map",
+    "static/js/2.a4969fb7.chunk.js": "/planning-poker/static/js/2.a4969fb7.chunk.js",
+    "static/js/2.a4969fb7.chunk.js.map": "/planning-poker/static/js/2.a4969fb7.chunk.js.map",
     "index.html": "/planning-poker/index.html",
-    "precache-manifest.56f2b38d120487da3349d01ec1543829.js": "/planning-poker/precache-manifest.56f2b38d120487da3349d01ec1543829.js",
+    "precache-manifest.583b64d03a4f5b75f7db9ac642a815f9.js": "/planning-poker/precache-manifest.583b64d03a4f5b75f7db9ac642a815f9.js",
     "service-worker.js": "/planning-poker/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/planning-poker/static/css/main.498d002a.chunk.css.map"
   }
