@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Heading, Button } from "grommet";
+import { Button } from "grommet";
 
 import Page from "../../Page";
 import { AuthUserContext } from "../../UserSession";
@@ -19,12 +19,11 @@ const Landing = ({ history }) => {
   const authUser = useContext(AuthUserContext);
   const firebase = useContext(FirebaseContext);
 
+  const pageTitle = `Welcome to planning poker ${
+    authUser ? authUser.planningPokerUsername : ""
+  }`;
   return (
-    <Page>
-      <Heading>
-        Welcome to planning poker{" "}
-        {authUser ? authUser.planningPokerUsername : ""}
-      </Heading>
+    <Page title={pageTitle}>
       {authUser && (
         <Button
           primary

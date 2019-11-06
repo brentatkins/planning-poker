@@ -20,7 +20,7 @@ const Page = ({ title, match, history, children }) => {
               />
             </Box>
           )}
-          <Heading>{title}</Heading>
+          {title && <Heading>{title}</Heading>}
         </Box>
         {children}
       </Box>
