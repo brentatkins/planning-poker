@@ -10,8 +10,8 @@ const Page = ({ title, match, history, children }) => {
 
   return (
     <Grommet full>
-      <Box fill align="start" background="light-4" pad="small">
-        <Box direction="row">
+      <Box fill overflow="auto" align="start" background="light-4" pad="small">
+        <Box direction="row" height={{ min: "auto" }}>
           {isNotHome && (
             <Box justify="center" pad="small">
               <Button
