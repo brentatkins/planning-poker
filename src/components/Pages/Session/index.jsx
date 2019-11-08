@@ -14,7 +14,7 @@ const Session = ({ history, match }) => {
   const { doc: session, isLoading, error } = useFirebaseDoc(`sessions/${id}`);
 
   const pageTitle = session
-    ? session.title
+    ? `Session: ${session.title}`
     : isLoading
     ? "Loading..."
     : error
@@ -25,7 +25,7 @@ const Session = ({ history, match }) => {
     <Page title={pageTitle}>
       {session && (
         <Box fill="horizontal" direction="row" gap="small">
-          <Box width={{ min: "400px" }}>
+          <Box width={{ min: "400px", max: "400px" }}>
             <SessionVote session={session} />
           </Box>
           <Box>

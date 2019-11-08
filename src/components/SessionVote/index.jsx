@@ -4,6 +4,7 @@ import { Link, Unlink } from "grommet-icons";
 
 import { FirebaseContext } from "../Firebase";
 import { AuthUserContext } from "../UserSession";
+import { GifLoader } from "../GifLoader";
 
 const estimates = [1, 2, 3, 5, 8, 13];
 
@@ -39,6 +40,8 @@ function SessionVote({ session }) {
 
   const userVote = session.votes && session.votes[user.planningPokerUsername];
 
+  console.warn(session);
+
   return (
     <Box align="start" gap="small" background="neutral-3" pad="small">
       <Heading level="2" margin="none" size="small">
@@ -52,8 +55,8 @@ function SessionVote({ session }) {
       )}
       {userIsInSession && userVote && (
         <>
-          <Box align="center">
-            <Text color="accent-1" size="80px" weight="bold">
+          <Box fill="horizontal" align="center" height={{ min: "94px" }}>
+            <Text color="accent-4" size="80px" weight="bold">
               {userVote}
             </Text>
           </Box>
@@ -63,7 +66,7 @@ function SessionVote({ session }) {
         </>
       )}
       {userIsInSession && (
-        <Box gap="xxsmall" direction="row">
+        <Box gap="xxsmall" direction="row" height={{ min: "36px" }}>
           {estimates.map(x => (
             <Button
               key={`estimate_${x}`}
@@ -95,6 +98,16 @@ function SessionVote({ session }) {
           </Paragraph>
           <Button primary label="Join" onClick={joinSession} icon={<Link />} />
         </>
+      )}
+      {userIsInSession && userVote && !session.reveal && (
+        <Box margin={{ top: "small" }}>
+          <Paragraph size="small">
+            Thanks for voing. Now we have to wait for the results to be revealed
+          </Paragraph>
+          <Box margin="none" height={{ min: "192px" }}>
+            <GifLoader searchTerm="bored" refreshPeriod={5000} />
+          </Box>
+        </Box>
       )}
     </Box>
   );
