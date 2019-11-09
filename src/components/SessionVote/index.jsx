@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Button, Heading, Paragraph, Text } from "grommet";
+import { Box, Button, Heading, Paragraph, Text, Collapsible } from "grommet";
 import { Link, Unlink } from "grommet-icons";
 
 import { FirebaseContext } from "../Firebase";
@@ -96,7 +96,10 @@ function SessionVote({ session }) {
           <Button primary label="Join" onClick={joinSession} icon={<Link />} />
         </>
       )}
-      {userIsInSession && userVote && !session.reveal && (
+      <Collapsible
+        direction="vertical"
+        open={userIsInSession && userVote && !session.reveal}
+      >
         <Box margin={{ top: "small" }}>
           <Paragraph size="small">
             Thanks for voing. Now we have to wait for the results to be revealed
@@ -105,7 +108,7 @@ function SessionVote({ session }) {
             <GifLoader searchTerm="bored" refreshPeriod={5000} />
           </Box>
         </Box>
-      )}
+      </Collapsible>
     </Box>
   );
 }

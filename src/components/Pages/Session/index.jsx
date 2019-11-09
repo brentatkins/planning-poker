@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "grommet";
+import { Box, Collapsible } from "grommet";
 
 import Page from "../../Page";
 import { useAuthorisation, authRules } from "../../UserSession";
