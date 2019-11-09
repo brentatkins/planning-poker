@@ -34,11 +34,11 @@ const Session = ({ history, match }) => {
           <Box fill="horizontal">
             <SessionVotes session={session} />
           </Box>
-          {sessionHasVotes && (
-            <Box width={{ min: "400px", max: "400px" }}>
+          <Box width={{ min: "400px", max: "400px" }}>
+            <Collapsible direction="horizontal" open={sessionHasVotes}>
               <SessionResult session={session} />
-            </Box>
-          )}
+            </Collapsible>
+          </Box>
         </Box>
       )}
     </Page>
