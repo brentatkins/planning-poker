@@ -5,8 +5,7 @@ import { Link, Unlink } from "grommet-icons";
 import { FirebaseContext } from "../Firebase";
 import { AuthUserContext } from "../UserSession";
 import { GifLoader } from "../GifLoader";
-
-const estimates = [1, 2, 3, 5, 8, 13];
+import { SCORE_OPTIONS } from "../../utils/scoreCalculator";
 
 function SessionVote({ session }) {
   const firebase = useContext(FirebaseContext);
@@ -65,7 +64,7 @@ function SessionVote({ session }) {
       )}
       {userIsInSession && (
         <Box gap="xxsmall" direction="row" height={{ min: "36px" }}>
-          {estimates.map(x => (
+          {SCORE_OPTIONS.map(x => (
             <Button
               key={`estimate_${x}`}
               label={x}
