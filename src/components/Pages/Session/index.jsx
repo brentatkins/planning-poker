@@ -5,7 +5,8 @@ import Page from "../../Page";
 import { useAuthorisation, authRules } from "../../UserSession";
 import { useFirebaseDoc } from "../../Firebase";
 import SessionVote from "../../SessionVote";
-import SessionResults from "../../SessionResults";
+import SessionVotes from "../../SessionVotes";
+import SessionResult from "../../SessionResult";
 
 const Session = ({ history, match }) => {
   const { id } = match.params;
@@ -21,6 +22,8 @@ const Session = ({ history, match }) => {
     ? "Error"
     : "";
 
+  const sessionHasVotes = session && Object.entries(session.votes).length > 0;
+
   return (
     <Page title={pageTitle}>
       {session && (
@@ -28,9 +31,14 @@ const Session = ({ history, match }) => {
           <Box width={{ min: "400px", max: "400px" }}>
             <SessionVote session={session} />
           </Box>
-          <Box>
-            <SessionResults session={session} />
+          <Box fill="horizontal">
+            <SessionVotes session={session} />
           </Box>
+          {sessionHasVotes && (
+            <Box width={{ min: "400px", max: "400px" }}>
+              <SessionResult session={session} />
+            </Box>
+          )}
         </Box>
       )}
     </Page>

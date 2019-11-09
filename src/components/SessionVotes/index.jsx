@@ -1,40 +1,26 @@
 import React, { useContext } from "react";
-import { Box, Heading, Text, CheckBox, Paragraph } from "grommet";
+import { Box, Heading, Text, Paragraph } from "grommet";
 
-import { FirebaseContext } from "../Firebase";
 import { AuthUserContext } from "../UserSession";
 
-function SessionResults({ session }) {
-  const firebase = useContext(FirebaseContext);
+function SessionVotes({ session }) {
   const user = useContext(AuthUserContext);
-
-  const handleRevealChange = e => {
-    const reveal = e.target.checked;
-    // controlled component hooked up to firebase 🤫
-    firebase.session(session.id).update({ reveal });
-  };
-
   const getUserVote = user => session.votes && session.votes[user];
 
   return (
     <Box align="start" gap="small" background="neutral-4" pad="small">
       <Heading level="2" margin="none" size="small">
-        Results
+        Votes
       </Heading>
       <Paragraph>Voting results will appear below for each user</Paragraph>
-      <CheckBox
-        checked={session.reveal}
-        label="Reveal results"
-        onChange={handleRevealChange}
-      />
       <Box direction="row" gap="small" wrap>
         {session.users &&
           session.users.map(sessionUser => {
             const userVote = getUserVote(sessionUser);
             const boxBorder =
               sessionUser === user.planningPokerUsername
-                ? { color: "accent-3", size: "xsmall" }
-                : { size: "xsmall" };
+                ? { size: "xsmall", style: "dashed" }
+                : { color: "accent-3", size: "xsmall" };
             return (
               <Box
                 key={`session_user_${sessionUser}`}
@@ -73,4 +59,4 @@ function SessionResults({ session }) {
   );
 }
 
-export default SessionResults;
+export default SessionVotes;

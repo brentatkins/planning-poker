@@ -40,8 +40,6 @@ function SessionVote({ session }) {
 
   const userVote = session.votes && session.votes[user.planningPokerUsername];
 
-  console.warn(session);
-
   return (
     <Box align="start" gap="small" background="neutral-3" pad="small">
       <Heading level="2" margin="none" size="small">
@@ -56,7 +54,7 @@ function SessionVote({ session }) {
       {userIsInSession && userVote && (
         <>
           <Box fill="horizontal" align="center" height={{ min: "94px" }}>
-            <Text color="accent-4" size="80px" weight="bold">
+            <Text color="status-warning" size="80px" weight="bold">
               {userVote}
             </Text>
           </Box>
