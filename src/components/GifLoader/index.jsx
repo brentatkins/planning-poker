@@ -16,7 +16,7 @@ export const GifLoader = ({ searchTerm, refreshPeriod }) => {
 
   useEffect(() => {
     async function loadGiphy() {
-      const giphyUrl = `${giphySettings.baseUrl}/random?api_key=${giphySettings.apiKey}&tag=${searchTerm}&rating=pg-13`;
+      const giphyUrl = `${giphySettings.baseUrl}/random?api_key=${giphySettings.apiKey}&tag=${searchTerm}&rating=pg`;
       const response = await fetch(giphyUrl);
       const json = await response.json();
       setImageUrl(json.data.image_url);

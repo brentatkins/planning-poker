@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Box, Heading, Paragraph, Button } from "grommet";
+import { FormView, Hide } from "grommet-icons";
 
 import { BlurredText } from "../UI/BlurredText";
 import { FirebaseContext } from "../Firebase";
@@ -38,7 +39,8 @@ function SessionResult({ session }) {
           <Box margin={{ top: "medium", bottom: "small" }}>
             <Button
               onClick={toggleReveal}
-              label={session.reveal ? "Hide votes" : "Show votes"}
+              label={session.reveal ? "Hide" : "Show"}
+              icon={session.reveal ? <Hide /> : <FormView />}
             />
           </Box>
         </>

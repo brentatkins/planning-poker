@@ -10,7 +10,7 @@ function SessionVotes({ session }) {
   return (
     <Box align="start" gap="small" background="neutral-4" pad="small">
       <Heading level="2" margin="none" size="small">
-        Votes
+        All Votes
       </Heading>
       <Paragraph>Voting results will appear below for each user</Paragraph>
       <Box direction="row" gap="small" wrap>
