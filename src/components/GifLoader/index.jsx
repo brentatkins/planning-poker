@@ -3,7 +3,7 @@ import { useInterval } from "../../utils/useInterval";
 
 const giphySettings = {
   baseUrl: "https://api.giphy.com/v1/gifs",
-  apiKey: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: process.env.REACT_APP_GIPHY_API_KEY
 };
 
 export const GifLoader = ({ searchTerm, refreshPeriod }) => {
