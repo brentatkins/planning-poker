@@ -14,9 +14,9 @@ function SessionResult({ session }) {
     firebase.session(session.id).update({ reveal });
   };
 
-  const sessionHasVotes = Object.entries(session.votes).length > 0;
+  const sessionHasVotes = Object.entries(session.votes || {}).length > 0;
 
-  const score = calculateScore(Object.values(session.votes));
+  const score = sessionHasVotes && calculateScore(Object.values(session.votes));
 
   return (
     <Box align="start" gap="small" background="neutral-1" pad="small">
