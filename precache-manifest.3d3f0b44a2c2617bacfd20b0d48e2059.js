@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ebd0bf448e30b3f8c496f6a2f22cbac2",
+    "revision": "bc84e6dd73397393fc232817a87c702c",
     "url": "/planning-poker/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/planning-poker/static/js/3.16513b5f.chunk.js"
   },
   {
-    "revision": "526ae2ba8464990945b2",
-    "url": "/planning-poker/static/js/4.baed547e.chunk.js"
+    "revision": "f6619153c95021480f98",
+    "url": "/planning-poker/static/js/4.6eb1263f.chunk.js"
   },
   {
     "revision": "fa2498c7a4c930cc3178",
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/planning-poker/static/js/main.7ec588cf.chunk.js"
   },
   {
-    "revision": "42a0f8d4fbac4dcf2d88",
-    "url": "/planning-poker/static/js/runtime-main.418a7694.js"
+    "revision": "400e69a3a2a7d3c706e3",
+    "url": "/planning-poker/static/js/runtime-main.849d1b9e.js"
   }
 ]);
