@@ -18,8 +18,11 @@ export const GifLoader = ({ searchTerm, refreshPeriod }) => {
     async function loadGiphy() {
       const giphyUrl = `${giphySettings.baseUrl}/random?api_key=${giphySettings.apiKey}&tag=${searchTerm}&rating=pg`;
       const response = await fetch(giphyUrl);
-      const json = await response.json();
-      setImageUrl(json.data.image_url);
+
+      if (response.status === 200) {
+        const json = await response.json();
+        setImageUrl(json.data.image_url);
+      }
     }
 
     loadGiphy();
