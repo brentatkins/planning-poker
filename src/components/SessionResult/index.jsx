@@ -4,7 +4,7 @@ import { FormView, Hide } from "grommet-icons";
 
 import { BlurredText } from "../UI/BlurredText";
 import { FirebaseContext } from "../Firebase";
-import { calculateScore } from "../../utils/scoreCalculator";
+import { calculateScore, getAverageScore } from "../../utils/scoreCalculator";
 
 function SessionResult({ session }) {
   const firebase = useContext(FirebaseContext);
@@ -15,8 +15,6 @@ function SessionResult({ session }) {
   };
 
   const sessionHasVotes = Object.entries(session.votes || {}).length > 0;
-
-  const score = sessionHasVotes && calculateScore(Object.values(session.votes));
 
   return (
     <Box align="start" gap="small" background="neutral-1" pad="small">
@@ -32,8 +30,14 @@ function SessionResult({ session }) {
               color="status-warning"
               size="80px"
               weight="bold"
+              title={
+                session.reveal &&
+                `Average: ${getAverageScore(Object.values(session.votes))}`
+              }
             >
-              {session.reveal ? score : "9"}
+              {session.reveal
+                ? calculateScore(Object.values(session.votes))
+                : "9"}
             </BlurredText>
           </Box>
           <Box margin={{ top: "medium", bottom: "small" }}>
